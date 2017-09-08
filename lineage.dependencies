@@ -4,8 +4,8 @@
     "target_path": "device/qcom/common"
   },
   {
-    "repository": "android_kernel_motorola_msm8226",
-    "target_path": "kernel/motorola/msm8226"
+    "repository": "android_kernel_samsung_msm8226",
+    "target_path": "kernel/samsung/msm8226"
   },
   {
     "repository": "android_packages_resources_devicesettings",

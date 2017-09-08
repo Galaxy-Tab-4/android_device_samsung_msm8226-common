@@ -44,7 +44,7 @@ using namespace android;
 
 enum {
     UNKNOWN = -1,
-    FALCON,
+    matissewifi,
     PEREGRINE,
     TITAN,
     THEA,
@@ -109,8 +109,8 @@ static int get_product_device()
 
     std::string device = GetProperty("ro.product.device", "");
 
-    if (device == "falcon")
-        product_device = FALCON;
+    if (device == "matissewifi")
+        product_device = matissewifi;
     else if (device == "peregrine")
         product_device = PEREGRINE;
     else if (device == "titan")
@@ -169,7 +169,7 @@ static char *camera_fixup_getparams(int id, const char *settings)
     params.set(KEY_QC_SUPPORTED_FACE_DETECTION, "on,off");
     params.set(KEY_QC_SUPPORTED_REDEYE_REDUCTION, "enable,disable");
 
-    if (get_product_device() == FALCON || get_product_device() == PEREGRINE) {
+    if (get_product_device() == matissewifi || get_product_device() == PEREGRINE) {
         if (id == BACK_CAMERA) {
             params.set(KEY_QC_SUPPORTED_HFR_SIZES, "1296x728");
             params.set(KEY_QC_SUPPORTED_VIDEO_HIGH_FRAME_RATE_MODES, "60,off");
@@ -180,7 +180,7 @@ static char *camera_fixup_getparams(int id, const char *settings)
         params.set(KEY_QC_SUPPORTED_ZSL_MODES, "on,off");
     }
 
-    if (!(get_product_device() == FALCON || get_product_device() == PEREGRINE) ||
+    if (!(get_product_device() == matissewifi || get_product_device() == PEREGRINE) ||
             id == BACK_CAMERA) {
         params.set(KEY_QC_SUPPORTED_TOUCH_AF_AEC, "touch-on,touch-off");
         params.set(CameraParameters::KEY_SUPPORTED_SCENE_MODES,
@@ -218,7 +218,7 @@ static char *camera_fixup_setparams(int id, const char *settings)
 
     /*
      * The video-hfr parameter gets removed from the parameters list by the
-     * vendor call, unless the Motorola camera app is used. Save the value
+     * vendor call, unless the samsung camera app is used. Save the value
      * so that we can later return it.
      */
     const char *hfr = params.get(KEY_QC_VIDEO_HIGH_FRAME_RATE);

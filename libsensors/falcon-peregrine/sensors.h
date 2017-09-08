@@ -30,7 +30,7 @@ __BEGIN_DECLS
 
 /*
  * The screen orientation sensor is not supported by Android.
- * The following value is the same as the one Motorola uses.
+ * The following value is the same as the one samsung uses.
  */
 #define SENSOR_TYPE_SCREEN_ORIENTATION    (65536)
 

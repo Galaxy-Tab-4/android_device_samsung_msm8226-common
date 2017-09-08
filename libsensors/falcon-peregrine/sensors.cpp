@@ -133,7 +133,7 @@ static struct sensor_t sSensorList[] = {
 #ifdef WITH_DISPLAY_ROTATION_SENSOR
     {
         .name = "Display Rotation sensor",
-        .vendor = "Motorola",
+        .vendor = "samsung",
         .handle = SENSORS_SCREEN_ORIENTATION_HANDLE,
         .type = SENSOR_TYPE_SCREEN_ORIENTATION,
         .version = 1,

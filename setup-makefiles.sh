@@ -36,7 +36,7 @@ fi
 setup_vendor "$DEVICE_COMMON" "$VENDOR" "$CM_ROOT" "true" "$1"
 
 # Copyright headers and guards
-write_headers "falcon peregrine thea titan"
+write_headers "matissewifi peregrine thea titan"
 
 # The standard common blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt

@@ -14,11 +14,11 @@
 # limitations under the License.
 
 # inherit from the proprietary version
--include vendor/motorola/msm8226-common/BoardConfigVendor.mk
+-include vendor/samsung/msm8226-common/BoardConfigVendor.mk
 
-VENDOR_PATH := device/motorola/msm8226-common
+VENDOR_PATH := device/samsung/msm8226-common
 
-BOARD_VENDOR := motorola-qcom
+BOARD_VENDOR := samsung-qcom
 
 TARGET_SPECIFIC_HEADER_PATH := $(VENDOR_PATH)/include
 
@@ -46,7 +46,7 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 LZMA_RAMDISK_TARGETS := recovery
-TARGET_KERNEL_SOURCE := kernel/motorola/msm8226
+TARGET_KERNEL_SOURCE := kernel/samsung/msm8226
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-smd"
