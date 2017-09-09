@@ -47,15 +47,17 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
-# Screen density
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xhdpi
+# Device uses high-density artwork where available
+PRODUCT_AAPT_CONFIG := large
+PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 1280
 
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
+
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 # ANT+
 PRODUCT_PACKAGES += \
@@ -171,10 +173,6 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
-# Perf
-PRODUCT_PACKAGES += \
-    libshims_atomic
-
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-impl \
@@ -186,17 +184,13 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    fstab.qcom \
-    init.qcom.bt.sh \
-    init.qcom.ril.sh \
-    dump_pds.sh
+    fstab.qcom
 
 PRODUCT_PACKAGES += \
-    init.mmi.boot.sh \
-    init.mmi.touch.sh \
     init.qcom.rc \
-    init.qcom.usb.rc \
+    init.qcom.power.rc \
     init.recovery.qcom.rc \
+    init.qcom.usb.rc \
     ueventd.qcom.rc
 
 # RenderScript HAL
@@ -211,11 +205,6 @@ PRODUCT_PACKAGES += \
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/thermal/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-thea.conf:system/etc/thermal-engine-thea.conf \
-    $(LOCAL_PATH)/thermal/thermal-engine-titan.conf:system/etc/thermal-engine-titan.conf
-
-PRODUCT_PACKAGES += \
-    libshims_thermal
 
 # /system FS resize
 PRODUCT_PACKAGES += \
